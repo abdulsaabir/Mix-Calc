@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mix Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="banner">
+    <h1>New Mogadisho Group</h1>
+  </div>
+  <div class="container">
+    <div class="calculator">
+      <h1>Mix Calculator</h1>
+      
+      <!-- Cement Grade Input Group -->
+      <div class="input-group">
+        <div class="input-row">
+          <label for="cementGrade">Cement Grade:</label>
+          <select id="cementGrade">
+            <option value="cs15">C15</option>
+            <option value="c20">C20</option>
+            <option value="c25">C25</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Cement Input Group -->
+      <div class="input-group">
+        <div class="input-row">
+          <label for="cement">Cement (in kg):</label>
+          <input type="number" id="cement" placeholder="Enter cement amount">
+        </div>
+      </div>
+      
+      <button onclick="calculate()">Calculate</button>
+      
+      <!-- Results Section (hidden by default) -->
+      <div class="results">
+        <div class="result-item">
+            <div class="pair">
+                <span class="label">Cement:</span>
+                <span class="value" id="cementResult"></span>
+            </div>
+            <div class="pair">
+                <span class="label">Price:</span>
+                <span class="value" id="cementPriceResult"></span>
+            </div>
+        </div>
+        <div class="result-item">
+            <div class="pair">
+                <span class="label">Sand:</span>
+                <span class="value" id="sandResult"></span>
+            </div>
+            <div class="pair">
+                <span class="label">Price:</span>
+                <span class="value" id="sandPriceResult"></span>
+            </div>
+        </div>
+        <div class="result-item">
+            <div class="pair">
+                <span class="label">Aggregate:</span>
+                <span class="value" id="aggregateResult"></span>
+            </div>
+            <div class="pair">
+                <span class="label">Price:</span>
+                <span class="value" id="aggregatePriceResult"></span>
+            </div>
+        </div>
+        <div class="result-item">
+            <div class="pair">
+                <span class="label">Water:</span>
+                <span class="value" id="waterResult"></span>
+            </div>
+            <div class="pair">
+                <span class="label">Price:</span>
+                <span class="value" id="waterPriceResult"></span>
+            </div>
+        </div>
+        
+        <div class="result-item">
+            <div class="pair">
+                <span class="label">Total (kg):</span>
+                <span class="value" id="totalkg"></span>
+            </div>
+            <div class="pair">
+                <span class="label">Total Price:</span>
+                <span class="value" id="totalPriceResult"></span>
+            </div>
+        </div>
+<!-- 
+        <div class="result-item">
+            <span class="label">Total Price:</span>
+            <span class="value" id="totalPriceResult"></span>
+        </div> -->
+    </div>
+    
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

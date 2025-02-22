@@ -1,0 +1,197 @@
+:root {
+    --primary: #2A2A72;
+    --secondary: #009FFD;
+    --accent: #FF0076;
+    --background: #0d1117;
+}
+
+
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background);
+    min-height: 100vh;
+    margin: 0;
+    position: relative; /* Makes body a reference for absolutely positioned children */
+    color: #061c31; /* Light gray text color for contrast */
+}
+
+.calculator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.calculator:hover {
+    /* Adjust hover effect while preserving center alignment */
+    transform: translate(-50%, calc(-50% - 5px));
+}
+
+
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    font-size: 2.2em;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-row label {
+    color: var(--primary);
+    font-size: 0.95em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.input-group select,
+.input-row input {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.1em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-row input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(0, 159, 253, 0.2);
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 159, 253, 0.3);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Results Section Styling */
+.results {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+    animation: fadeIn 0.5s ease-out;
+    font-weight: bold;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 247, 250, 0.5);
+    padding: 0.8rem;
+    margin: 0.3rem 0;
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+
+.results .label {
+    font-weight: bold;
+    color: var(--primary);
+    margin-right: 8px;
+}
+
+.results .value {
+    text-align: right;
+    margin-right: 16px;
+    min-width: 60px; /* Ensures values align properly */
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Banner Styles */
+.banner {
+  background-color: #0366d6;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #f5f7fa;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .calculator {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+}
